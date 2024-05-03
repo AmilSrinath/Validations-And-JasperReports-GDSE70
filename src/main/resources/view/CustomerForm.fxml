@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="699.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse70.Controller.CustomerFormController">
+   <children>
+      <Text layoutX="244.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Manage Form">
+         <font>
+            <Font name="Poppins Regular" size="32.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtID" labelFloat="true" layoutX="112.0" layoutY="103.0" onAction="#btnSearch" prefHeight="29.0" prefWidth="250.0" promptText="Customer ID" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="475.0" layoutY="103.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="112.0" layoutY="170.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Address" />
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="475.0" layoutY="170.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Contact" />
+      <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="112.0" layoutY="246.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer NIC" />
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="475.0" layoutY="246.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Email" />
+      <JFXTextField fx:id="txtSalary" labelFloat="true" layoutX="112.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Salary" />
+      <JFXTextField fx:id="txtAge" labelFloat="true" layoutX="475.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Age" />
+      <TableView fx:id="tblCustomer" layoutX="17.0" layoutY="465.0" prefHeight="215.0" prefWidth="823.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="73.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="117.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="135.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="114.0" text="Contact" />
+            <TableColumn fx:id="colNIC" prefWidth="96.0" text="NIC" />
+            <TableColumn fx:id="colEmail" prefWidth="108.0" text="Email" />
+            <TableColumn fx:id="colSalary" prefWidth="79.0" text="Salary" />
+            <TableColumn fx:id="colAge" prefWidth="100.0" text="Age" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btnSave" layoutX="87.0" layoutY="390.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="232.0" layoutY="390.0" onAction="#btnDeleteOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="379.0" layoutY="390.0" onAction="#btnUpdateOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnClear" layoutX="519.0" layoutY="390.0" onAction="#btnClearOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnPrintBill" layoutX="658.0" layoutY="390.0" onAction="#btnPrintBillOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Print Bill" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
