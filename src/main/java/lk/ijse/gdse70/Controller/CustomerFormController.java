@@ -20,9 +20,16 @@ import lk.ijse.gdse70.Model.TM.CustomerTM;
 import lk.ijse.gdse70.Repo.CustomerRepo;
 import lk.ijse.gdse70.Util.Regex;
 import lk.ijse.gdse70.Util.TextField;
+import lk.ijse.gdse70.db.DBConnection;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerFormController {
 
@@ -219,7 +226,23 @@ public class CustomerFormController {
     }
 
     @FXML
-    void btnPrintBillOnAction(ActionEvent event) {
+    void btnPrintBillOnAction(ActionEvent event) throws JRException, SQLException {
+        JasperDesign jasperDesign =
+                JRXmlLoader.load("src/main/resources/Report/CustomerReport.jrxml");
+        JasperReport jasperReport =
+                JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("CustomerID",txtID.getText());
+        data.put("NetTotal","3000");
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        data,
+                        DBConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
 
     }
 
