@@ -14,9 +14,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.gdse70.Model.Customer;
 import lk.ijse.gdse70.Model.TM.CustomerTM;
 import lk.ijse.gdse70.Repo.CustomerRepo;
+import lk.ijse.gdse70.Util.Regex;
+import lk.ijse.gdse70.Util.TextField;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -146,11 +149,13 @@ public class CustomerFormController {
         String salary = txtSalary.getText();
         String age = txtAge.getText();
 
-        boolean isSaved = CustomerRepo.save(new Customer(id, name, address, contact, nic, email, salary, age));
+        if (isValid()) {
+            boolean isSaved = CustomerRepo.save(new Customer(id, name, address, contact, nic, email, salary, age));
 
-        if (isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
-            clear();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
+                clear();
+            }
         }
 
         loadAllCustomers();
@@ -216,5 +221,19 @@ public class CustomerFormController {
     @FXML
     void btnPrintBillOnAction(ActionEvent event) {
 
+    }
+
+    public void txtCustomerIDOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.ID,txtID);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(TextField.ID,txtID)) return false;
+        if (!Regex.setTextColor(TextField.NIC,txtNIC)) return false;
+        return true;
+    }
+
+    public void txtCustomerNICOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.NIC,txtNIC);
     }
 }
